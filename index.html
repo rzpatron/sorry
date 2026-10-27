@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#fdf6f0">
+<title>Для тебя</title>
+<style>
+    <style>
+  :root {
+    --bg: #fdf6f0;
+    --text: #3a2e2a;
+    --accent: #8a5a44;
+    --heart: #b5654a;
+    --line: #e0cfc4;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1e1917;
+      --text: #ece3dc;
+      --accent: #d9a184;
+      --heart: #e08a6a;
+      --line: #3a2e2a;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    background: var(--bg);
+  }
+
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: transparent;
+    color: var(--text);
+    margin: 0;
+    padding: max(24px, env(safe-area-inset-top)) 20px max(40px, env(safe-area-inset-bottom));
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+    margin: 0 0 12px;
+    letter-spacing: -0.01em;
+  }
+
+  h2 {
+    font-size: 1.15rem;
+    color: var(--accent);
+    margin: 36px 0 10px;
+    line-height: 1.35;
+  }
+
+  p { margin: 12px 0; }
+
+  ul {
+    padding-left: 20px;
+    margin: 12px 0;
+  }
+
+  li {
+    margin: 10px 0;
+    padding-left: 4px;
+  }
+
+  .lead {
+    font-size: 1.02rem;
+    opacity: 0.92;
+  }
+
+  .final {
+    margin-top: 44px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    font-style: italic;
+  }
+
+  .heart {
+    color: var(--heart);
+    font-style: normal;
+    margin-top: 16px;
+  }
+
+  /* ===== ФОН С АНИМАЦИЕЙ ===== */
+  .bg-anim {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.35;
+    will-change: transform;
+    animation: float 18s ease-in-out infinite alternate;
+  }
+
+  .o1 { width: 220px; height: 220px; background: #e8b4a0; top: -60px;  left: -40px;  animation-duration: 22s; }
+  .o2 { width: 180px; height: 180px; background: #d9a184; top: 30%;   right: -50px; animation-duration: 26s; animation-delay: -4s; }
+  .o3 { width: 260px; height: 260px; background: #f0c9b8; bottom: -80px; left: 20%;  animation-duration: 30s; animation-delay: -8s; }
+  .o4 { width: 140px; height: 140px; background: #c98a6e; top: 60%;   left: -30px;  animation-duration: 24s; animation-delay: -12s; }
+  .o5 { width: 200px; height: 200px; background: #e6b89c; top: 10%;   left: 45%;    animation-duration: 28s; animation-delay: -6s; }
+
+  @keyframes float {
+    0%   { transform: translate(0, 0) scale(1); }
+    50%  { transform: translate(30px, -40px) scale(1.08); }
+    100% { transform: translate(-20px, 30px) scale(0.95); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .orb { animation: none; }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .orb { opacity: 0.18; }
+  }
+
+  /* ===== ПЛАВНОЕ ПОЯВЛЕНИЕ ТЕКСТА ===== */
+  .wrap > * {
+    animation: fadeUp 0.8s ease both;
+  }
+  .wrap > *:nth-child(2) { animation-delay: 0.1s; }
+  .wrap > *:nth-child(3) { animation-delay: 0.2s; }
+  .wrap > *:nth-child(4) { animation-delay: 0.3s; }
+  .wrap > *:nth-child(5) { animation-delay: 0.4s; }
+  .wrap > *:nth-child(6) { animation-delay: 0.5s; }
+  .wrap > *:nth-child(7) { animation-delay: 0.6s; }
+  .wrap > *:nth-child(8) { animation-delay: 0.7s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wrap > * { animation: none; }
+  }
+
+  /* ===== АДАПТИВ ===== */
+  @media (max-width: 380px) {
+    body { font-size: 16px; padding-left: 16px; padding-right: 16px; }
+    h1 { font-size: 1.4rem; }
+    h2 { font-size: 1.08rem; margin-top: 30px; }
+  }
+
+  @media (min-width: 768px) {
+    body {
+      font-size: 18px;
+      padding-top: 56px;
+    }
+    h1 { font-size: 1.9rem; }
+    h2 { font-size: 1.25rem; margin-top: 44px; }
+  }
+</style>
+</style>
+</head>
+<body>
+
+<div class="bg-anim" aria-hidden="true">
+  <span class="orb o1"></span>
+  <span class="orb o2"></span>
+  <span class="orb o3"></span>
+  <span class="orb o4"></span>
+  <span class="orb o5"></span>
+</div>
+
+<div class="wrap">
+
+<h1>Гузель, матурым я знаю, что обидел тебя.</h1>
+<p class="lead">Это не оправдание — это извинение. Прочитай, пожалуйста, до конца.</p>
+
+<h2>Что я понял</h2>
+<ul>
+  <li>Тебе не хватает внимания от меня.</li>
+  <li>Я должен был сам заметить, а не ждать, что ты объяснишь.</li>
+  <li>Я не хочу, чтобы ты чувствовала себя ненужной.</li>
+  <li>Ты имеешь право обижаться. Я это принимаю.</li>
+</ul>
+
+<h2>Чего я не буду делать</h2>
+<ul>
+  <li>Не буду оправдываться.</li>
+  <li>Не буду говорить «я не романтик» — это отговорка.</li>
+  <li>Не буду просить тебя сказать, что мне делать.</li>
+</ul> 
+
+<h2>Давай завтра погуляем чисто вдвоем и обсудим все</h2>
+<p>Ты для меня бесценна и я не хочу что бы мое Cолнышко обижалась на меня поэтому я хочу все испраить!</p>
+
+<div class="final">
+  <p class="lead">Я не прошу, чтобы ты сразу перестала обижаться. Просто знай: я услышал тебя. И хочу исправлять это делом, а не словами.</p>
+  <p class="heart">— Руниз</p>
+</div>
+
+</div>
+</body>
+</html>
